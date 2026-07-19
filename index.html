@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giao diện trạm sạc DC</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+  body {
+    background: #0d1b2a;
+    color: #e0e6ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  .charger {
+    background: #14263b;
+    width: 420px;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #1f3a5a;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-size: 18px;
+    color: #4fd1c5;
+  }
+  .status {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .status.charging { background: #1a5d3a; color: #4ade80; }
+  .status.idle { background: #3a3a1a; color: #eab308; }
+
+  .soc-ring {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  .soc-value {
+    font-size: 42px;
+    font-weight: bold;
+    color: #4fd1c5;
+  }
+  .soc-label {
+    text-align: center;
+    color: #8fa4b8;
+    font-size: 13px;
+    margin-top: -8px;
+  }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .metric {
+    background: #0d1b2a;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+  }
+  .metric .value {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f1f5f9;
+  }
+  .metric .label {
+    font-size: 11px;
+    color: #8fa4b8;
+    margin-top: 4px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #0d1b2a;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 16px 0;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 68%;
+    background: linear-gradient(90deg, #4fd1c5, #38bdf8);
+    border-radius: 6px;
+  }
+
+  .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .btn-stop {
+    background: #dc2626;
+    color: white;
+  }
+  .btn-stop:hover { background: #b91c1c; }
+  .btn-info {
+    background: #1f3a5a;
+    color: #e0e6ed;
+  }
+  .btn-info:hover { background: #294a70; }
+</style>
+</head>
+<body>
+
+<div class="charger">
+  <div class="header">
+    <h1>⚡ Trạm sạc DC #01</h1>
+    <span class="status charging">ĐANG SẠC</span>
+  </div>
+
+  <div class="soc-ring">
+    <div style="text-align:center;">
+      <div class="soc-value">68%</div>
+      <div class="soc-label">Dung lượng pin (SOC)</div>
+    </div>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-fill"></div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric">
+      <div class="value">420 V</div>
+      <div class="label">Điện áp</div>
+    </div>
+    <div class="metric">
+      <div class="value">85 A</div>
+      <div class="label">Dòng điện</div>
+    </div>
+    <div class="metric">
+      <div class="value">35.7 kW</div>
+      <div class="label">Công suất</div>
+    </div>
+    <div class="metric">
+      <div class="value">00:18:42</div>
+      <div class="label">Thời gian sạc</div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn-info">Chi tiết</button>
+    <button class="btn-stop">Dừng sạc</button>
+  </div>
+</div>
+
+</body>
+</html>
